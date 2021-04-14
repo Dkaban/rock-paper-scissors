@@ -1,32 +1,43 @@
+var choices = ["Rock", "Paper", "Scissors"];
+
 function computerPlay()
 {
-    return "scissors";
+    document.write("Computers Choice is: " + choices[Math.floor(Math.random() * choices.length)]);
+    //return choices[Math.floor(Math.random() * choices.length)];
 }
 
 function playRound(playerSelection, computerSelection)
 {
-    if(playerSelection == "rock" && computerSelection == "paper")
+
+}
+
+function compare(playerChoice, computerChoice)
+{
+    playerChoice = choices.indexOf(playerChoice);
+    computerChoice = choices.indexOf(computerChoice);
+
+    if(playerChoice == computerChoice)
     {
-        //Computer wins
-        console.log("Computer Wins!");
+        return "Tie";
     }
-    else if(playerSelection == "paper" && computerSelection == "scissors")
+    else if(playerChoice == choices.length -1 && computerChoice == 0)
     {
-        //Computer wins
-        console.log("Computer Wins!");
+        return "Computer Wins";
     }
-    else if(playerSelection == "scissors" && computerSelection == "rock")
+    else if(computerChoice == choices.length -1 && playerChoice == 0)
     {
-        //Computer wins
-        console.log("Computer Wins!");
+        return "Player Wins";
+    }
+    else if(playerChoice > computerChoice)
+    {
+        return "Player Wins";
     }
     else
     {
-        //Player wins
-        console.log("Player Wins!");
+        return "Computer Wins";
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection,computerSelection));
+//const playerSelection = "rock";
+//const computerSelection = computerPlay();
+//console.log(playRound(playerSelection,computerSelection));
