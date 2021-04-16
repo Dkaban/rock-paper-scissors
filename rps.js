@@ -1,43 +1,43 @@
 var choices = ["Rock", "Paper", "Scissors"];
 
-function computerPlay()
+var result;
+
+function displayResult()
 {
-    document.write("Computers Choice is: " + choices[Math.floor(Math.random() * choices.length)]);
-    //return choices[Math.floor(Math.random() * choices.length)];
+    document.getElementById("Result").innerHTML = result;
 }
 
-function playRound(playerSelection, computerSelection)
+function makeChoice(playerChoice)
 {
-
+    result = compareChoices(playerChoice, choices[Math.floor(Math.random() * choices.length)]);
+    displayResult();
 }
 
-function compare(playerChoice, computerChoice)
+function compareChoices(playerChoice, computerChoice)
 {
+    var yourChoice = playerChoice;
+    var compChoice = computerChoice;
     playerChoice = choices.indexOf(playerChoice);
     computerChoice = choices.indexOf(computerChoice);
 
     if(playerChoice == computerChoice)
     {
-        return "Tie";
+        return "TIE! You and the computer both chose " + yourChoice + ".";
     }
     else if(playerChoice == choices.length -1 && computerChoice == 0)
     {
-        return "Computer Wins";
+        return "COMPUTER WINS!  You chose " + yourChoice + " and the computer chose " + compChoice + ".";
     }
     else if(computerChoice == choices.length -1 && playerChoice == 0)
     {
-        return "Player Wins";
+        return "YOU WIN!  You chose " + yourChoice + " and the computer chose " + compChoice + ".";
     }
     else if(playerChoice > computerChoice)
     {
-        return "Player Wins";
+        return "YOU WIN!  You chose " + yourChoice + " and the computer chose " + compChoice + ".";
     }
     else
     {
-        return "Computer Wins";
+        return "COMPUTER WINS!  You chose " + yourChoice + " and the computer chose " + compChoice + ".";
     }
 }
-
-//const playerSelection = "rock";
-//const computerSelection = computerPlay();
-//console.log(playRound(playerSelection,computerSelection));
